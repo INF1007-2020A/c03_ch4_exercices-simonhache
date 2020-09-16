@@ -3,23 +3,35 @@
 
 
 def is_even_len(string: str) -> bool:
-    return False
+    isEven = (len(string)%2) == 0
+    return isEven
 
 
 def remove_third_char(string: str) -> str:
-    return ""
+    string = string[0:2]+string[3:]
+    return string
 
 
 def replace_char(string: str, old_char: str, new_char: str) -> str:
-    return ""
+    string = string.replace(old_char, new_char)
+    return string
 
 
 def get_nb_char(string: str, char: str) -> int:
-    return 0
+    cnt = 0
+    for letters in string:
+        if letters == char:
+            cnt +=1
+    return cnt
 
 
 def get_nb_words(sentence: str) -> int:
-    return 0
+    space = " "
+    cnt = 1
+    for letters in sentence:
+        if letters == space:
+            cnt+=1
+    return cnt
 
 
 def main() -> None:
@@ -33,6 +45,7 @@ def main() -> None:
     string = "hello world!"
     print(f"On remplace le caratère w par le caractère z dans la chaine: '{string}'. Résultat: {replace_char(string, 'w', 'z')}")
 
+    string = "hello"
     print(f"Le nombre d'occurrence de l dans hello est : {get_nb_char(string, 'l')}")
     
     string = "Baby shark doo doo doo doo doo doo"
